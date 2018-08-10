@@ -32,7 +32,7 @@ function isInOrder() {
 
     if(indexArray[this.cards.length -1] === 12){
         if (indexArray[0] === 0)
-            return indexArray[this.cards.length - 2] - indexArray[0] === this.cards.length;
+            return indexArray[this.cards.length - 2] - indexArray[0] + 2 === this.cards.length;
     }
     return indexArray[this.cards.length -1] - indexArray[0] + 1 === this.cards.length;
 }

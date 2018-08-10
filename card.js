@@ -6,21 +6,6 @@ class Card {
       this.suit = denom;
   }
 
-  get suit() {
-    return this.suit;
-  }
-  get denom() {
-    return this.denom;
-  }
-
-  set suit(suit) {
-    this.suit = suit;
-  }
-
-  set denom(denom) {
-    this.denom = denom;
-  }
-
   color() {
     const colorSuitMap = {
       "SPADE" : "BLACK",

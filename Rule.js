@@ -38,22 +38,28 @@ function isInOrder() {
 }
 function getMaxCard() {
     let maxIndex = -1;
+    let maxCard;
     for (let card of this.cards){
-        if(this.ranking.indexOf(card.denom) > maxIndex)
+        if(this.ranking.indexOf(card.denom) > maxIndex){
             maxIndex = this.ranking.indexOf(card.denom);
+            maxCard = card;
+        }
     }
 
-    return this.cards[maxIndex];
+    return maxCard;
 }
 
 function getMinCard() {
     let minIndex = this.cards.length;
+    let minCard;
     for (let card of this.cards){
-        if(this.ranking.indexOf(card.denom) < minIndex)
+        if(this.ranking.indexOf(card.denom) < minIndex){
             minIndex = this.ranking.indexOf(card.denom);
+            minCard = card;
+        }
     }
 
-    return this.cards[minIndex];
+    return minCard;
 }
 
 class Rules {

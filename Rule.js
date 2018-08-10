@@ -68,6 +68,4 @@ class Rules {
     }
 }
 
-module.exports = {
-    Rules : Rules
-};
+module.exports = Rules;

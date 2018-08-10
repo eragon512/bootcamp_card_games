@@ -13,10 +13,10 @@ function getCountByValue() {
 function getCountBySuit() {
     let countBySuit= {};
     for (let card of this.cards) {
-        if(countByValue.hasOwnProperty(card.suit)){
-            countByValue[card.suit]++;
+        if(countBySuit.hasOwnProperty(card.suit)){
+            countBySuit[card.suit]++;
         }else {
-            countByValue[card.suit] = 1;
+            countBySuit[card.suit] = 1;
         }
     }
     return countBySuit;

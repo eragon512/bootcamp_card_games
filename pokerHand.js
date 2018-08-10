@@ -1,5 +1,5 @@
 const Card = require('./card');
-const Rule = require('./');
+const Rule = require('./Rule');
 
 function ruleSetPass(rules) {
   let satisfied = [];
@@ -28,12 +28,6 @@ class PokerHand {
   evaluate() {
     if(this.cards.length !== 5)
       return "INVALID";
-
-    let satisfied = [{
-      ruleName: "HIGH CARD",
-      priority: 10,
-      components: []
-    }];
 
     let rule = new Rule(this.cards);
 
@@ -86,7 +80,7 @@ class PokerHand {
         components: []
       },
     ]);
-
-
   }
 }
+
+module.exports = PokerHand;

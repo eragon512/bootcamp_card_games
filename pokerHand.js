@@ -1,6 +1,12 @@
 const Card = require('./card');
 const Rule = require('./Rule');
 
+const ranking = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+
+function getObjectValues(obj) {
+  return Object.keys(obj).map(key => obj[key]);
+}
+
 function ruleSetPass(rules) {
   let satisfied = [];
   for(let rule of rules) {
@@ -12,11 +18,9 @@ function ruleSetPass(rules) {
       });
     }
   }
-
   satisfied.sort(function (a,b) {
     return a.priority - b.priority;
   });
-  console.log(satisfied);
   return satisfied;
 }
 
@@ -29,7 +33,7 @@ class PokerHand {
     if(this.cards.length !== 5)
       return "INVALID";
 
-    let rule = new Rule(this.cards);
+    let rule = new Rule(this.cards,ranking);
 
     let countDict = rule.getCountByValue();
     let countTwos = getObjectValues(countDict).filter(x => x === 2).length;
@@ -38,10 +42,10 @@ class PokerHand {
     let isInOrder = rule.isInOrder();
     let isFlush = getObjectValues(rule.getCountBySuit()).filter(x => x === 5).length;
 
-    ruleSetPass([
+    return ruleSetPass([
       { expr: true,
         name: "HIGH CARD", priority: 10,
-        components: []
+        components: rule.getMaxCard()
       },
       { expr: countTwos === 1,
         name: "ONE PAIR", priority: 9,

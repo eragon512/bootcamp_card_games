@@ -7,8 +7,8 @@ function ruleSetPass(rules) {
     if(rule.expr) {
       satisfied.push({
         ruleName: rule.name,
-        priority: rule.priority
-        components = rule.components.slice()
+        priority: rule.priority,
+        components: rule.components.slice()
       });
     }
   }

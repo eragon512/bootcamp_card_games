@@ -12,6 +12,15 @@ class Card {
   get denom() {
     return this.denom;
   }
+
+  set suit(suit) {
+    this.suit = suit;
+  }
+
+  set denom(denom) {
+    this.denom = denom;
+  }
+
   color() {
     const colorSuitMap = {
       "SPADE" : "BLACK",
@@ -23,3 +32,5 @@ class Card {
     return colorSuitMap[this.suit];
   }
 }
+
+module.exports = Card;

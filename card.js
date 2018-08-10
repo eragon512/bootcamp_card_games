@@ -1,7 +1,9 @@
 class Card {
   constructor(denom,suit) {
-    this.suit = suit;
     this.denom = denom;
+    this.suit = suit;
+    if(denom === "JOKER")
+      this.suit = denom;
   }
 
   get suit() {

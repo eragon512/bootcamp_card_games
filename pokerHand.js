@@ -32,11 +32,11 @@ class PokerHand {
     let rule = new Rule(this.cards);
 
     let countDict = rule.getCountByValue();
-    let countTwos = countDict.filter(x => x === 2).length;
-    let countThrees = countDict.filter(x => x === 3).length;
-    let countFours = countDict.filter(x => x === 4).length;
+    let countTwos = Object.values(countDict).filter(x => x === 2).length;
+    let countThrees = Object.values(countDict).filter(x => x === 3).length;
+    let countFours = Object.values(countDict).filter(x => x === 4).length;
     let isInOrder = rule.isInOrder();
-    let isFlush = rule.getCountBySuit.filter(x => x === 5).length;
+    let isFlush = Object.values(rule.getCountBySuit()).filter(x => x === 5).length;
 
     ruleSetPass([
       { expr: true,

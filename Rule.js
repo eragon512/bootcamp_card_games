@@ -30,6 +30,10 @@ function isInOrder() {
         return a - b;
     });
 
+    if(indexArray[this.cards.length -1] === 12){
+        if (indexArray[0] === 0)
+            return indexArray[this.cards.length - 2] - indexArray[0] === this.cards.length;
+    }
     return indexArray[this.cards.length -1] - indexArray[0] + 1 === this.cards.length;
 }
 function getMaxCard() {
@@ -52,7 +56,7 @@ function getMinCard() {
     return this.cards[minIndex];
 }
 
-class Rule {
+class Rules {
     constructor(cards,ranking){
         this.ranking = ranking;
         this.cards = cards;
@@ -63,3 +67,7 @@ class Rule {
         this.getMinCard = getMinCard;
     }
 }
+
+module.exports = {
+    Rules : Rules
+};

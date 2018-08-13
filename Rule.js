@@ -39,13 +39,21 @@ function isInOrder() {
 function getMaxCard() {
     let maxIndex = -1;
     let maxCard;
-    for (let card of this.cards){
-        if(this.ranking.indexOf(card.denom) > maxIndex){
-            maxIndex = this.ranking.indexOf(card.denom);
-            maxCard = card;
+    if (this.isInOrder()){
+        for (let card of this.cards){
+            if(card.denom!='A' && this.ranking.indexOf(card.denom) > maxIndex){
+                maxIndex = this.ranking.indexOf(card.denom);
+                maxCard = card;
+            }
+        }
+    } else {
+        for (let card of this.cards){
+            if(this.ranking.indexOf(card.denom) > maxIndex){
+                maxIndex = this.ranking.indexOf(card.denom);
+                maxCard = card;
+            }
         }
     }
-
     return maxCard;
 }
 

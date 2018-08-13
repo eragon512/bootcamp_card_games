@@ -1,4 +1,12 @@
-const Card = require('./pokerCard');
+const Card = require('./card');
+
+function orderToRank(orderArray) {
+  let rankObject = {};
+  orderArray.forEach(function(item,index) {
+    rankObject[item] = index
+  });
+  return rankObject;
+}
 
 class PokerCard extends Card {
   constructor(num) {

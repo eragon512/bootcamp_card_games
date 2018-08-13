@@ -1,3 +1,5 @@
+const Pack = require('./pack');
+
 class Deck {
   constructor(numPacks,jokersPerPack,CardImpl) {
     this.cards = [];
@@ -35,6 +37,6 @@ class Deck {
 
 module.exports = Deck;
 
-let deck = new Deck(2,1,PokerCard);
-deck.shuffle();
+//let deck = new Deck(2,1,PokerCard);
+//deck.shuffle();
 //console.log(deck.toString());

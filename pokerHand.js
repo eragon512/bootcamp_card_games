@@ -14,7 +14,7 @@ function ruleSetPass(rules) {
       satisfied.push({
         ruleName: rule.name,
         priority: rule.priority,
-        components: rule.components.slice()
+        components: rule.components
       });
     }
   }
@@ -45,43 +45,43 @@ class PokerHand {
     return ruleSetPass([
       { expr: true,
         name: "HIGH CARD", priority: 10,
-        components: rule.getMaxCard()
+        components: [rule.getMaxCard().denom]
       },
       { expr: countTwos === 1,
         name: "ONE PAIR", priority: 9,
-        components: []
+        components: rule.getPairs(countDict)
       },
       { expr: countTwos === 2,
         name: "TWO PAIR", priority: 8,
-        components: []
+        components: rule.getPairs(countDict)
       },
       { expr: countThrees === 1,
         name: "THREE OF A KIND", priority: 7,
-        components: []
+        components: [rule.getComponents(countDict,3)]
       },
       { expr: isInOrder,
         name: "STRAIGHT", priority: 6,
-        components: []
+        components: [rule.getMaxCard().denom]
       },
       { expr: isFlush,
         name: "FLUSH", priority: 5,
-        components: []
+        components: [rule.getMaxCard().denom]
       },
       { expr: countThrees === 1 && countTwos === 1,
         name: "FULL HOUSE", priority: 4,
-        components: []
+        components: [rule.getComponents(countDict,3),rule.getComponents(countDict,2)]
       },
       { expr: countFours === 1,
         name: "FOUR OF A KIND", priority: 3,
-        components: []
+        components: [rule.getComponents(countDict,4)]
       },
       { expr: isInOrder && isFlush,
         name: "STRAIGHT FLUSH", priority: 2,
-        components: []
+        components: [rule.getMaxCard().denom]
       },
       { expr: isInOrder && isFlush && rule.getMinCard().denom === "10",
         name: "ROYAL FLUSH", priority: 1,
-        components: []
+        components: [rule.getMaxCard().denom]
       },
     ]);
   }

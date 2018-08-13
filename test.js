@@ -2,11 +2,11 @@ const Rules=require('./Rule');
 const Card=require('./card');
 const PokerHand=require('./PokerHand');
 
-let a=new Card('3','SPADE');
-let b=new Card('4','SPADE');
-let c=new Card('5','SPADE');
-let d=new Card('2','SPADE');
-let e=new Card('A','SPADE');
+let a=new Card('A','SPADE');
+let b=new Card('2','DIAMOND');
+let c=new Card('3','HEART');
+let d=new Card('4','CLUB');
+let e=new Card('5','HEART');
 let ranking=['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
 let obj=new Rules([a,b,c,d,e],ranking);
 console.log(obj.getCountByValue());

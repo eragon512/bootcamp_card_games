@@ -50,7 +50,7 @@ function getMaxCard() {
 }
 
 function getMinCard() {
-    let minIndex = this.cards.length;
+    let minIndex = this.ranking.length;
     let minCard;
     for (let card of this.cards){
         if(this.ranking.indexOf(card.denom) < minIndex){
@@ -62,6 +62,19 @@ function getMinCard() {
     return minCard;
 }
 
+function getPairs(Dict){
+    let denoms=[];
+    for(var key in Dict){
+      if(Dict[key]==2)
+        denoms.push(key);
+    }
+    return denoms;
+}
+
+function getComponents(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
+}
+
 class Rules {
     constructor(cards,ranking){
         this.ranking = ranking;
@@ -71,6 +84,8 @@ class Rules {
         this.isInOrder = isInOrder;
         this.getMaxCard = getMaxCard;
         this.getMinCard = getMinCard;
+        this.getPairs=getPairs;
+        this.getComponents=getComponents;
     }
 }
 
